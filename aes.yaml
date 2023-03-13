@@ -631,7 +631,7 @@ spec:
           value: edge-stack-redis:6379
 
         securityContext:
-          allowPrivilegeEscalation: false
+          allowPrivilegeEscalation: true
         livenessProbe:
           httpGet:
             path: /ambassador/v0/check_alive
