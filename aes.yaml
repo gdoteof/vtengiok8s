@@ -503,6 +503,15 @@ metadata:
     app.kubernetes.io/managed-by: getambassador.io
     product: aes
 spec:
+  lifecycle:
+    preStop:
+      exec:
+        command:
+          - "sh"
+          - "-c"
+          - >
+            curl -XPOST localhost:8001/healthcheck/fail;
+            /bin/sleep 45;
   replicas: 1
   selector:
     matchLabels:
